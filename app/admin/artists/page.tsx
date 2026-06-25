@@ -1,0 +1,3 @@
+import { Workspace } from "@/components/DashboardNav"; import { Card } from "@/components/Shell"
+const artists=[['Mira Vale','12 releases','Verified'],['Kxng Sol','4 releases','Pending KYC'],['Ayo Nova','8 releases','Verified']]
+export default function Artists(){return <Workspace admin><h1 className="text-4xl font-black">Artists</h1><Card className="mt-8"><div className="space-y-4">{artists.map(([name,count,status])=><div key={name} className="flex items-center justify-between rounded-2xl bg-white/5 p-4"><div><p className="font-bold">{name}</p><p className="text-sm text-slate-400">{count}</p></div><span className="rounded-full bg-white/10 px-3 py-1 text-sm">{status}</span></div>)}</div></Card></Workspace>}
