@@ -1,0 +1,7 @@
+import { Card } from "@/components/Shell"
+import { Workspace } from "@/components/DashboardNav"
+import { releases, earnings } from "@/lib/data"
+
+export default function Dashboard() {
+  return <Workspace><div className="mb-8"><h1 className="text-4xl font-black">Artist overview</h1><p className="mt-2 text-slate-300">Monitor releases, review status, and payout performance.</p></div><div className="grid gap-5 md:grid-cols-3">{[['Live releases','12'],['Pending review','3'],['Available balance','₦412,650']].map(([k,v])=><Card key={k}><p className="text-slate-400">{k}</p><p className="mt-3 text-3xl font-black">{v}</p></Card>)}</div><div className="mt-8 grid gap-6 lg:grid-cols-2"><Card><h2 className="text-2xl font-black">Recent releases</h2><div className="mt-5 space-y-4">{releases.map(r=><div key={r.title} className="flex items-center justify-between rounded-2xl bg-white/5 p-4"><div><p className="font-bold">{r.title}</p><p className="text-sm text-slate-400">{r.type} · {r.stores} stores</p></div><span className="rounded-full bg-cyan-400/10 px-3 py-1 text-sm text-cyan-200">{r.status}</span></div>)}</div></Card><Card><h2 className="text-2xl font-black">Top earnings</h2><div className="mt-5 space-y-4">{earnings.map(e=><div key={e.source} className="flex justify-between rounded-2xl bg-white/5 p-4"><span>{e.source}</span><strong>{e.amount} <span className="text-sm text-emerald-300">{e.change}</span></strong></div>)}</div></Card></div></Workspace>
+}
